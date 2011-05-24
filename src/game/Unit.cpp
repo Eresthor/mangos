@@ -9368,6 +9368,25 @@ void Unit::CleanupsBeforeDelete()
     WorldObject::CleanupsBeforeDelete();
 }
 
+bool Unit::IsCleaned() const
+{
+    bool cleaned =
+        m_Events.Empty() &&
+        m_spellAuraHolders.empty() &&
+        m_deletedHolders.empty() &&
+        m_deletedAuras.empty() &&
+        m_singleCastSpellTargets.empty() &&
+        m_ThreatManager.isThreatListEmpty() &&
+
+        m_guardianPets.empty() &&
+        m_gameObj.empty() &&
+        m_dynObjGUIDs.empty() &&
+
+        !GetCharm();
+
+    return cleaned;
+}
+
 CharmInfo* Unit::InitCharmInfo(Unit *charm)
 {
     if(!m_charmInfo)

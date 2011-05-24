@@ -5438,13 +5438,9 @@ void Spell::EffectSummonPet(SpellEffectIndex eff_idx)
             if( OldSummon->isDead() )
                 return;
 
-            OldSummon->GetMap()->Remove((Creature*)OldSummon,false);
-
             float px, py, pz;
             m_caster->GetClosePoint(px, py, pz, OldSummon->GetObjectBoundingRadius());
-
-            OldSummon->Relocate(px, py, pz, OldSummon->GetOrientation());
-            m_caster->GetMap()->Add((Creature*)OldSummon);
+            OldSummon->NearTeleportTo(px, py, pz, OldSummon->GetOrientation());
 
             if(m_caster->GetTypeId() == TYPEID_PLAYER && OldSummon->isControlled() )
             {

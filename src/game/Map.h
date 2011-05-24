@@ -52,6 +52,7 @@ class BattleGroundPersistentState;
 struct ScriptInfo;
 class BattleGround;
 class GridMap;
+class ObjectDestructor;
 
 // GCC have alternative #pragma pack(N) syntax and old gcc version not support pack(push,N), also any gcc version not support it at some platform
 #if defined( __GNUC__ )
@@ -285,6 +286,8 @@ class MANGOS_DLL_SPEC Map : public GridRefManager<NGridType>
 
         void setNGrid(NGridType* grid, uint32 x, uint32 y);
         void ScriptsProcess();
+
+        ObjectDestructor* m_destructor;
 
         void SendObjectUpdates();
         std::set<Object *> i_objectsToClientUpdate;

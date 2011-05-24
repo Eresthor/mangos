@@ -961,12 +961,12 @@ bool ChatHandler::HandleGameObjectTurnCommand(char* args)
         return false;
 
     Map* map = obj->GetMap();
-    map->Remove(obj,false);
+    //map->Remove(obj,false);
 
     obj->Relocate(obj->GetPositionX(), obj->GetPositionY(), obj->GetPositionZ(), o);
     obj->UpdateRotationFields();
 
-    map->Add(obj);
+   // map->Add(obj);
 
     obj->SaveToDB();
     obj->Refresh();
