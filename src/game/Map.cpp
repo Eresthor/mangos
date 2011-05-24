@@ -680,8 +680,6 @@ void Map::Update(const uint32 &t_diff)
             sMapMgr.UpdateGridState(grid->GetGridState(), *this, *grid, *info, grid->getX(), grid->getY(), t_diff);
         }
     }
-
-    m_destructor->ProcessDestructions();
 }
 
 void Map::Remove(Player *player, bool destroy)
@@ -3090,4 +3088,9 @@ uint32 Map::GenerateLocalLowGuid(HighGuid guidhigh)
 
     MANGOS_ASSERT(0);
     return 0;
+}
+
+void Map::ProcessDestructions()
+{
+    m_destructor->ProcessDestructions();
 }

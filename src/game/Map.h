@@ -118,6 +118,7 @@ class MANGOS_DLL_SPEC Map : public GridRefManager<NGridType>
         static void DeleteFromWorld(Player* player);        // player object will deleted at call
 
         virtual void Update(const uint32&);
+        void ProcessDestructions();
 
         void MessageBroadcast(Player *, WorldPacket *, bool to_self);
         void MessageBroadcast(WorldObject *, WorldPacket *);
