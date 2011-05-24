@@ -137,6 +137,7 @@ private:
             break;
         case TYPEID_CORPSE:
             ((Corpse*)obj)->GetGridRef().delink();
+            break;
         default:
             sLog.outError("ObjectDestructor::CleanSingle: not expected object typeId: %u", obj->GetTypeId());
             break;
